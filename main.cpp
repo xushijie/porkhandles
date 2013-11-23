@@ -55,8 +55,6 @@ public:
     }
     
     void addOneString(std::string line){
-        
-        
         int cardsNumber = 0, i =0;
         std::string::size_type prev_pos = 0, pos = 0;
         std::string* cards = NULL;
