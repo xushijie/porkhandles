@@ -1,5 +1,5 @@
 /* 
- * File:   main.cpp
+ * File:   trip.cpp
  * Author: shijiex
  *
  * Created on November 7, 2013, 2:17 PM
