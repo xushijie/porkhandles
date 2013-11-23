@@ -27,10 +27,7 @@ public:
     Node(std::string card):_card(card){
     }
     
-    std::string toString(){
-        return _card;
-    }
-    
+ 
 };
 
 class CardTree{
@@ -64,9 +61,9 @@ public:
                     cardsNumber = atoi(line.substr(prev_pos, pos-prev_pos).c_str());
                     cards = new std::string[cardsNumber+1];
                 }else{
-                    if( i>= cardsNumber ){
-                        break;
-                    }
+//                    if( i>= cardsNumber ){
+//                        break;
+//                    }
                     std::string onecard = line.substr(prev_pos, pos-prev_pos);
                     cards[i++] = onecard;
                 }
@@ -83,13 +80,13 @@ public:
     }
     
     void addNode(std::string* cards, int number, Node* root){
-        if(number<0) return ;    //The current cards is sub tail string of previous one.
         std::string card = cards[number];
         Node *node =new Node(card);
         std::set<Node*, Node::comparator>::iterator iter = root->_children.find(node);
         if(root->_children.size() !=0 && iter!=root->_children.end() ){
             Node* oneNode = *iter;
             delete node;
+            if(number==0) return;   //The current cards is sub tail string of previous one.
             addNode(cards, number-1, oneNode);
         }else{
             Node *cur = root ;
